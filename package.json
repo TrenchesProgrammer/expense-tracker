@@ -21,6 +21,7 @@
     "@mantine/notifications": "^7.17.3",
     "@mantine/nprogress": "^7.17.3",
     "@mantine/spotlight": "^7.17.3",
+    "@mantine/styles": "^6.0.22",
     "@tabler/icons-react": "^3.31.0",
     "chart.js": "^4.4.8",
     "dayjs": "^1.11.13",

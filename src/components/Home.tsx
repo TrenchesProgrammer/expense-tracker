@@ -1,21 +1,51 @@
-import { Box, Text, Title, Grid, Flex, Button } from "@mantine/core";
+import { Box, Text, Title, Grid, Flex, Button, Modal } from "@mantine/core";
 import { IconCurrencyNaira } from "@tabler/icons-react";
+import { useDisclosure } from '@mantine/hooks';
 import Activity from "./Activity";
 import ExpenseChart from "./ExpenseChart";
+import AddExpense from "./AddExpense";
 const Home = () => {
+    const [opened, { open, close }] = useDisclosure(false);
   return (
     <>
+     <Modal
+        opened={opened}
+        onClose={close}
+        title="New Expense"
+        fullScreen
+        radius={0}
+        transitionProps={{ transition: 'fade', duration: 200 }}
+      >
+        <AddExpense/>
+      </Modal>
       <Box p={"md"}>
         <Title order={1} pb={"lg"}>
           Good afternoon Ryan
         </Title>
         <Grid>
-            <Grid.Col span={6}>
-                <Button style={{borderRadius:'30px'}}>Add Expense</Button>
-            </Grid.Col>
-            <Grid.Col span={6}>
-                <Button bg={"grey"} style={{borderRadius:'30px'}}>Generate Report</Button>
-            </Grid.Col>
+          <Grid.Col span={6}>
+            <Button
+              variant="default"
+              onClick={open}
+                size="lg"
+              style={{
+                borderRadius: "30px",
+              }}
+            >
+              Add Expense
+            </Button>
+          </Grid.Col>
+          <Grid.Col span={6}>
+            <Button
+            size="lg"
+              style={{
+                borderRadius: "30px",
+                backgroundColor: "grey",
+              }}
+            >
+              Generate Report
+            </Button>
+          </Grid.Col>
         </Grid>
         <Title order={3} pb={"md"}>
           Recent activity
