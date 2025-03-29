@@ -1,4 +1,4 @@
-import { Box, Text, Title, Grid, Flex } from "@mantine/core";
+import { Box, Text, Title, Grid, Flex, Button } from "@mantine/core";
 import { IconCurrencyNaira } from "@tabler/icons-react";
 import Activity from "./Activity";
 import ExpenseChart from "./ExpenseChart";
@@ -9,6 +9,14 @@ const Home = () => {
         <Title order={1} pb={"lg"}>
           Good afternoon Ryan
         </Title>
+        <Grid>
+            <Grid.Col span={6}>
+                <Button style={{borderRadius:'30px'}}>Add Expense</Button>
+            </Grid.Col>
+            <Grid.Col span={6}>
+                <Button bg={"grey"} style={{borderRadius:'30px'}}>Generate Report</Button>
+            </Grid.Col>
+        </Grid>
         <Title order={3} pb={"md"}>
           Recent activity
         </Title>
