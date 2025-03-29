@@ -1,41 +1,74 @@
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Area } from "recharts";
+import { Line } from "react-chartjs-2";
+import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend, ScriptableContext } from "chart.js";
 import { Card, Text } from "@mantine/core";
+import { useRef } from "react";
 
-const data = [
-  { month: "Jan", value: 1200 },
-  { month: "Feb", value: 1500 },
-  { month: "Mar", value: 1100 },
-  { month: "Apr", value: 1800 },
-  { month: "May", value: 1400 },
-  { month: "Jun", value: 1900 },
-];
+ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend);
 
 function ExpenseChart() {
+  const chartRef = useRef(null);
+
+  const data = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    datasets: [
+      {
+        label: "Monthly Expenses",
+        data: [1200, 1500, 1100, 1800, 1400, 1900], // Values
+        borderColor: "#b48a5e", // Line color
+        backgroundColor: (context: ScriptableContext<'line'>) => {
+
+          const chart = context.chart;
+          console.log(context.chart.chartArea)
+          const { ctx, chartArea } = chart.chartArea;
+
+          // Ensure chartArea is available
+          if (!chartArea) {
+            return null;
+          }
+
+          // Create a linear gradient
+        //   const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+        //   gradient.addColorStop(0, "rgba(180, 138, 94, 0.4)"); // Darker at top
+        //   gradient.addColorStop(1, "rgba(180, 138, 94, 0)"); // Fade out at bottom
+
+        //   return gradient;
+        },
+        fill: true, // Enables the gradient under the line
+        tension: 0.4, // Makes the line smooth
+        pointRadius: 0, // Small circles on data points
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false }, // Hide legend
+      tooltip: { enabled: true },
+    },
+    scales: {
+      x: {
+        grid: { display: false },
+        ticks: { font: { size: 12 } },
+        border: { display: false },
+      },
+      y: {
+        grid: { display: false },
+        ticks: { display: false },
+        border: { display: false },
+      },
+    },
+  };
+
   return (
-    <Card p="lg" radius="md" >
+    <Card  p="lg" radius="md" >
       <Text size="lg">Monthly Expenses</Text>
       <Text color="dimmed">Jan - Jun <span style={{ color: "green" }}>+5%</span></Text>
 
-      <ResponsiveContainer width="100%" height={200}>
-        <LineChart data={data}>
-          {/* Define Gradient */}
-          <defs>
-            <linearGradient id="colorGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#b48a5e" stopOpacity={0.4} />
-              <stop offset="100%" stopColor="#b48a5e" stopOpacity={0} />
-            </linearGradient>
-          </defs>
-
-          {/* Apply Gradient to the Area */}
-          <Area type="monotone" dataKey="value" fill="url(#colorGradient)" stroke="none" />
-
-          Line Chart
-          <XAxis dataKey="month" stroke="#a3a3a3" axisLine={false} tickLine={false} interval={0} />
-          <YAxis hide />
-          <Tooltip />   
-          <Line type="monotone" dataKey="value" stroke="#b48a5e" strokeWidth={3} dot={false} />
-        </LineChart>
-      </ResponsiveContainer>
+      <div style={{ width: "100%", height: "200px" }}>
+        <Line ref={chartRef} data={data} options={options} />
+      </div>
     </Card>
   );
 }
