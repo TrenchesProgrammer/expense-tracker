@@ -19,20 +19,20 @@ function ExpenseChart() {
       <ResponsiveContainer width="100%" height={200}>
         <LineChart data={data}>
           {/* Define Gradient */}
-          {/* <defs>
+          <defs>
             <linearGradient id="colorGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#b48a5e" stopOpacity={0.4} />
               <stop offset="100%" stopColor="#b48a5e" stopOpacity={0} />
             </linearGradient>
-          </defs> */}
+          </defs>
 
           {/* Apply Gradient to the Area */}
-          {/* <Area type="monotone" dataKey="value" fill="url(#colorGradient)" stroke="none" /> */}
+          <Area type="monotone" dataKey="value" fill="url(#colorGradient)" stroke="none" />
 
-          {/* Line Chart */}
+          Line Chart
           <XAxis dataKey="month" stroke="#a3a3a3" axisLine={false} tickLine={false} interval={0} />
           <YAxis hide />
-          {/* <Tooltip />    */}
+          <Tooltip />   
           <Line type="monotone" dataKey="value" stroke="#b48a5e" strokeWidth={3} dot={false} />
         </LineChart>
       </ResponsiveContainer>
