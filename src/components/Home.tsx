@@ -1,53 +1,53 @@
 import { Box, Text, Title, Grid, Flex, Button, Modal } from "@mantine/core";
 import { IconCurrencyNaira } from "@tabler/icons-react";
-import { useDisclosure } from '@mantine/hooks';
+import { useDisclosure } from "@mantine/hooks";
 import Activity from "./Activity";
 import ExpenseChart from "./ExpenseChart";
 import AddExpense from "./AddExpense";
 const Home = () => {
-    const [opened, { open, close }] = useDisclosure(false);
+  const [opened, { open, close }] = useDisclosure(false);
   return (
     <>
-     <Modal
+      <Modal
         opened={opened}
         onClose={close}
-        title="New Expense"
+        title= "Add Expense"
+        styles={{
+          title: { width: "100%", textAlign: "center", fontWeight:'bold'}, 
+        }}
         fullScreen
         radius={0}
-        transitionProps={{ transition: 'fade', duration: 200 }}
+        transitionProps={{ transition: "fade", duration: 200 }}
       >
-        <AddExpense/>
+        <AddExpense />
       </Modal>
       <Box p={"md"}>
         <Title order={1} pb={"lg"}>
           Good afternoon Ryan
         </Title>
-        <Grid>
-          <Grid.Col span={6}>
-            <Button
-              variant="default"
-              onClick={open}
-                size="lg"
-              style={{
-                borderRadius: "30px",
-              }}
-            >
-              Add Expense
-            </Button>
-          </Grid.Col>
-          <Grid.Col span={6}>
-            <Button
-            size="lg"
-              style={{
-                borderRadius: "30px",
-                backgroundColor: "grey",
-              }}
-            >
-              Generate Report
-            </Button>
-          </Grid.Col>
-        </Grid>
-        <Title order={3} pb={"md"}>
+        <Flex justify={"space-between"}>
+          <Button
+            variant="default"
+            onClick={open}
+            size="md"
+            style={{
+              borderRadius: "30px",
+            }}
+          >
+            Add Expense
+          </Button>
+          <Button
+            size="md"
+            style={{
+              borderRadius: "30px",
+              backgroundColor: "grey",
+            }}
+          >
+            Generate Report
+          </Button>
+        </Flex>
+
+        <Title order={3} pt={"md"} pb={"md"}>
           Recent activity
         </Title>
         <Activity />
@@ -64,22 +64,24 @@ const Home = () => {
             padding: "20px",
           }}
         >
-          <Grid gutter={'10px'}>
+          <Grid gutter={"10px"}>
             <Grid.Col span={12}>
               <Text>Monthly Expenses</Text>
             </Grid.Col>
             <Grid.Col span={12}>
               <Flex>
-                <IconCurrencyNaira size={'37px'} />
+                <IconCurrencyNaira size={"37px"} />
                 <Title order={2}>205,000</Title>
               </Flex>
             </Grid.Col>
             <Grid.Col span={12}>
-              <Title style={{color:'#9bb4c8'}} order={5}>This Month</Title>
+              <Title style={{ color: "#9bb4c8" }} order={5}>
+                This Month
+              </Title>
             </Grid.Col>
           </Grid>
         </Box>
-        <ExpenseChart/>
+        <ExpenseChart />
       </Box>
     </>
   );
