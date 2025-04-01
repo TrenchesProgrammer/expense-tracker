@@ -11,7 +11,7 @@ const AddExpense = () => {
         <TextInput label="Category" placeholder="Enter category" />
         <TextInput label="Date" placeholder="Enter date"  />
         <Box style={{display:'flex', justifyContent:'center'}}>
-            <Button style={{position:'absolute',bottom:'10px', width:'70%', borderRadius:'13px'}} type="submit">Add Expense</Button>
+            <Button style={{position:'absolute',bottom:'10px', width:'75%', height:'45px', borderRadius:'13px'}} type="submit">Add Expense</Button>
         </Box>
       </form>
     </>
