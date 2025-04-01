@@ -1,23 +1,18 @@
-import { TextInput, Button, Title, Center } from "@mantine/core";
+import { TextInput, Button, Box } from "@mantine/core";
 const AddExpense = () => {
   return (
     <>
-      {/* <Center>
-        <Title order={4} pb={"lg"}>
-          Add Expense
-        </Title>
-      </Center> */}
-
       <form action="">
         <TextInput
-          label="Expense Name"
-          placeholder="Enter expense name"
-          required
+          label="Name"
+          placeholder="Name"
         />
-        <TextInput label="Amount" placeholder="Enter amount" required />
-        <TextInput label="Date" placeholder="Enter date" required />
-        <TextInput label="Category" placeholder="Enter category" required />
-        <Button type="submit">Add Expense</Button>
+        <TextInput label="Amount" placeholder="Enter amount" />
+        <TextInput label="Category" placeholder="Enter category" />
+        <TextInput label="Date" placeholder="Enter date"  />
+        <Box style={{display:'flex', justifyContent:'center'}}>
+            <Button style={{position:'absolute',bottom:'10px', width:'70%', borderRadius:'13px'}} type="submit">Add Expense</Button>
+        </Box>
       </form>
     </>
   );
