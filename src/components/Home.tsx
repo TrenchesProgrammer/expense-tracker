@@ -1,6 +1,7 @@
 import { Box, Text, Title, Grid, Flex, Button, Modal } from "@mantine/core";
 import { IconCurrencyNaira } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
+import {Link} from 'react-router-dom'
 import Activity from "./Activity";
 import ExpenseChart from "./ExpenseChart";
 import AddExpense from "./AddExpense";
@@ -54,6 +55,9 @@ const Home = () => {
         <Activity />
         <Activity />
         <Activity />
+        <Link to={'/expenses'}>
+          <p style={{textAlign:'center'}}>See All</p>
+        </Link>
         <Title order={3} pt={"md"} pb={"md"}>
           Expenses at a glance
         </Title>
