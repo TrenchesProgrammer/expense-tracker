@@ -3,9 +3,6 @@ const DateExpenses = () => {
     return ( 
         <div style={{padding:'20px'}}>
             <Title order={3}>
-                Expenses
-            </Title>
-            <Title order={3}>
                 Date
             </Title>
         </div>

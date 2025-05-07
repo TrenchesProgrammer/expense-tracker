@@ -1,24 +1,30 @@
 import {Button, Box } from "@mantine/core";
 import "../index.css";
 const AddExpense = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData);
+    console.log(data); 
+  }
   return (
     <>
-      <form style={{ display: "flex", flexDirection: "column", gap:'25px'}} action="">
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap:'25px'}} action="">
         <Box>
           <label>Name</label>
-          <input className="modalInput" placeholder="Name" />
+          <input name="name" className="modalInput" placeholder="Name" />
         </Box>
         <Box>
           <label>Amount</label>
-          <input className="modalInput" placeholder="Enter amount" />
+          <input name = "Amount" className="modalInput" placeholder="Enter amount" />
         </Box>
         <Box>
           <label>Category</label>
-          <input className="modalInput" placeholder="Category" />
+          <input name="Category" className="modalInput" placeholder="Category" />
         </Box>
         <Box>
           <label>Date</label>
-          <input type="select" className="modalInput" placeholder="Enter date" />
+          <input name="Date" type="select" className="modalInput" placeholder="Enter date" />
         </Box>
 
         <Box style={{ display: "flex", justifyContent: "center" }}>
