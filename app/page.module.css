@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+.modalInput{
+    /* font-family: 'Noto Sans', sans-serif; */
+    font-size: 1rem;
+    padding: 1rem;
+    margin-top: 10px;
+    border-radius: 0.5rem;
+    border: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #f0f3f4;
+}

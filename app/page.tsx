@@ -1,10 +1,12 @@
+'use client'
+
 import { Box, Text, Title, Grid, Flex, Button, Modal } from "@mantine/core";
 import { IconCurrencyNaira } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
-import {Link} from 'react-router-dom'
-import Activity from "./Activity";
-import ExpenseChart from "./ExpenseChart";
-import AddExpense from "./AddExpense";
+import Activity from "./components/Activity";
+import ExpenseChart from "./components/ExpenseChart";
+import AddExpense from "./components/AddExpense";
+import Link from "next/link";
 const Home = () => {
   const [opened, { open, close }] = useDisclosure(false);
   return (
@@ -55,7 +57,7 @@ const Home = () => {
         <Activity />
         <Activity />
         <Activity />
-        <Link to={'/expenses'}>
+        <Link href='/expenses'>
           <p style={{textAlign:'center'}}>See All</p>
         </Link>
         <Title order={3} pt={"md"} pb={"md"}>

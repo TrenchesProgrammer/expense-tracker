@@ -1,5 +1,5 @@
 import {Button, Box } from "@mantine/core";
-import "../index.css";
+import "../globals.css";
 const AddExpense = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

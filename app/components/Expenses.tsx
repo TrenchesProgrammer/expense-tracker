@@ -1,4 +1,4 @@
-import DateExpenses from "./DateExpenses";
+import DateExpenses from "../../expense-tracker/app/components/DateExpenses";
 const Expenses = () => {
     return ( 
         <>
