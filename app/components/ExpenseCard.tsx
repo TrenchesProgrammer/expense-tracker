@@ -1,5 +1,4 @@
 import { Flex, Text, Box } from "@mantine/core";
-import { IconCurrencyNaira } from "@tabler/icons-react";
 const ExpenseCard = () => {
   return (
     <>
